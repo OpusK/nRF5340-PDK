@@ -18,7 +18,7 @@
   * OpenOCD V0.10.0-13
     * https://github.com/xpack-dev-tools/openocd-xpack/releases/tag/v0.10.0-13/
     
-  * GNU Arm Embeddded Toolchain: 6-2017-q2
+  * GNU Arm Embeddded Toolchain: 7-2018-q2-update
     * https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
     * '8-2018-q4' version has a bug when creating HEX.
       * https://devzone.nordicsemi.com/f/nordic-q-a/43354/linker-error-address-out-of-range-for-intel-hex-files
