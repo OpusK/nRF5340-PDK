@@ -26,3 +26,8 @@
 ## Library
   * nrfx V2.1.0
     * https://github.com/NordicSemiconductor/nrfx/releases/tag/v2.1.0
+    
+## Reference
+  * nRF Connect SDK
+    * [GitHub repo.](https://github.com/NordicPlayground/fw-nrfconnect-nrf)
+    * [Manual](http://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/index.html)
