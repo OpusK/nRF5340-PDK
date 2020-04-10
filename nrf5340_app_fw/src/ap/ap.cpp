@@ -12,11 +12,19 @@
 
 
 
+static void threadLED(void const *argument);
+static void threadLCD(void const *argument);
 
 
 void apInit(void)
 {
   hwInit();
+
+  osThreadDef(threadLED, threadLED, _HW_DEF_RTOS_THREAD_PRI_LED, 0, _HW_DEF_RTOS_THREAD_MEM_LED);
+  osThreadCreate(osThread(threadLED), NULL);
+
+  osThreadDef(threadLCD, threadLCD, _HW_DEF_RTOS_THREAD_PRI_LCD, 0, _HW_DEF_RTOS_THREAD_MEM_LCD);
+  osThreadCreate(osThread(threadLCD), NULL);
 }
 
 void apMain(void)
@@ -25,13 +33,30 @@ void apMain(void)
 
   while(1)
   {
-    if (millis()-pre_time >= 500)
+    if (millis()-pre_time >= 100)
     {
       pre_time = millis();
 
-      ledToggle(_DEF_LED1);
-
+      ledToggle(_DEF_LED2);
     }
+    osThreadYield();
   }
 }
 
+static void threadLED(void const *argument)
+{
+  for(;;)
+  {
+    ledToggle(_DEF_LED1);
+    osDelay(500);
+  }
+}
+
+
+static void threadLCD(void const *argument)
+{
+  while(1)
+  {
+    osThreadYield();
+  }
+}
