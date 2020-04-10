@@ -14,7 +14,7 @@
 
 
 
-#define _HW_DEF_RTOS_MEM_SIZE(x)              ((x)/1)
+#define _HW_DEF_RTOS_MEM_SIZE(x)              ((x)/4)
 
 #define _HW_DEF_RTOS_THREAD_PRI_MAIN          osPriorityNormal
 #define _HW_DEF_RTOS_THREAD_PRI_USB           osPriorityNormal
