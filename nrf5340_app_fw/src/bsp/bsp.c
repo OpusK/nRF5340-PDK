@@ -9,6 +9,7 @@
 
 
 #include "bsp.h"
+#include "rtos.h"
 #include "nrf_clock.h"
 
 
@@ -21,11 +22,11 @@ static volatile uint32_t systick_counter = 0;
 extern void swtimerISR(void);
 
 
-void SysTick_Handler(void)
-{
-  systick_counter++;
+//void SysTick_Handler(void)
+//{
+  //systick_counter++;
   //swtimerISR();
-}
+//}
 
 extern void bspYield(void);
 void bspYield(void)
@@ -35,12 +36,16 @@ void bspYield(void)
 
 void bspInit(void)
 {
-
+/*
   nrf_systick_load_set(SystemCoreClock / (1000UL / (uint32_t)1)); // 1Khz
   nrf_systick_csr_set(
       NRF_SYSTICK_CSR_CLKSOURCE_CPU |
       NRF_SYSTICK_CSR_TICKINT_ENABLE |
       NRF_SYSTICK_CSR_ENABLE);
+*/
+
+  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 7, 0));
+
 
 
   p_timer_us->TASKS_STOP = (TIMER_TASKS_STOP_TASKS_STOP_Trigger << TIMER_TASKS_STOP_TASKS_STOP_Pos);
@@ -54,7 +59,7 @@ void bspDeInit(void)
 {
   // Disable Interrupts
   //
-  for (int i=0; i<8; i++)
+  for (int i=0; i<16; i++)
   {
     NVIC->ICER[i] = 0xFFFFFFFF;
     __DSB();
@@ -108,3 +113,17 @@ uint32_t micros(void)
 
   return cur_time;
 }
+
+void HardFault_Handler(void)
+{
+  /* Go to infinite loop when Hard Fault exception occurs */
+  while (1)
+  {
+  }
+}
+
+void SecureFault_Handler(void)
+{
+  while(1);  /* Something went wrong */
+}
+
