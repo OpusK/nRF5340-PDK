@@ -20,6 +20,8 @@ void apInit(void)
 {
   hwInit();
 
+  cmdifOpen(_DEF_UART1, 57600);
+
   osThreadDef(threadLED, threadLED, _HW_DEF_RTOS_THREAD_PRI_LED, 0, _HW_DEF_RTOS_THREAD_MEM_LED);
   osThreadCreate(osThread(threadLED), NULL);
 
@@ -39,12 +41,9 @@ void apMain(void)
 
       ledToggle(_DEF_LED2);
     }
-    osThreadYield();
 
-    if (uartAvailable(_DEF_UART1) > 0)
-    {
-      uartPrintf(_DEF_UART1, "rx : 0x%X\n", uartRead(_DEF_UART1));
-    }
+    cmdifMain();
+    osThreadYield();
   }
 }
 

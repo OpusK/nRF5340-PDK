@@ -19,6 +19,8 @@ extern "C" {
 
 #include "led.h"
 #include "uart.h"
+#include "cmdif.h"
+#include "swtimer.h"
 
 
 void hwInit(void);
