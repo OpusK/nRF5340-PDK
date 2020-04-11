@@ -59,7 +59,7 @@ typedef struct
 
 static uart_t uart_tbl[UART_MAX_CH];
 
-
+static char print_buffer[UART_MAX_CH][256];
 
 
 static void uartStartRx(uint8_t channel);
@@ -123,7 +123,7 @@ bool uartOpen(uint8_t channel, uint32_t baud)
                                 | UARTE_INTENSET_RXSTARTED_Msk
                                 | UARTE_INTENSET_ERROR_Msk;
 
-      NVIC_SetPriority(SPIM0_SPIS0_TWIM0_TWIS0_UARTE0_IRQn, 5);
+      NVIC_SetPriority(SPIM0_SPIS0_TWIM0_TWIS0_UARTE0_IRQn, 7);
       NVIC_EnableIRQ(SPIM0_SPIS0_TWIM0_TWIS0_UARTE0_IRQn);
 
       uartStartRx(channel);
@@ -414,13 +414,12 @@ int32_t uartPrintf(uint8_t channel, const char *fmt, ...)
   va_list arg;
   va_start (arg, fmt);
   int32_t len;
-  char print_buffer[256];
 
 
-  len = vsnprintf(print_buffer, 255, fmt, arg);
+  len = vsnprintf(print_buffer[channel], 255, fmt, arg);
   va_end (arg);
 
-  ret = uartWrite(channel, (uint8_t *)print_buffer, len);
+  ret = uartWrite(channel, (uint8_t *)print_buffer[channel], len);
 
   return ret;
 }

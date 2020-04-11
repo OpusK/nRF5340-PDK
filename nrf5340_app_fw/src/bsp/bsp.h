@@ -22,9 +22,13 @@ extern "C" {
 
 #include "nrfx_systick.h"
 #include "nrf_gpio.h"
+#include "nrf_clock.h"
 
 
-#define logPrintf(...)    printf(__VA_ARGS__)
+extern int32_t uartPrintf(uint8_t channel, const char *fmt, ...);
+
+//#define logPrintf(...)    printf(__VA_ARGS__)
+#define logPrintf(...)    uartPrintf(_DEF_UART1, __VA_ARGS__)
 
 
 void bspYield(void);

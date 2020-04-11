@@ -69,12 +69,14 @@ caddr_t _sbrk(int incr)
   if (heap_end == 0)
     heap_end = &end;
 
+  /*
   prev_heap_end = heap_end;
   if (heap_end + incr > stack_ptr)
   {
     errno = ENOMEM;
     return (caddr_t) -1;
   }
+  */
 
   heap_end += incr;
 
