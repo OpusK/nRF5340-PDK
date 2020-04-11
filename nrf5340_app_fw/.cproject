@@ -116,6 +116,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/bsp/ldscript/NRF5340_FLASH.ld}&quot;"/>
 								</option>
 								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano.338314894" name="Use newlib-nano (--specs=nano.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnano" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnosys.1708997509" name="Do not use syscalls (--specs=nosys.specs)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.usenewlibnosys" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.cref.1432021954" name="Cross reference (-Xlinker --cref)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.cref" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.input.1976294052" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -136,7 +138,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/bsp/FreeRTOS/Source/portable/MemMang/heap_4.c|src/bsp/FreeRTOS/Source/CMSIS_RTOS_V2|src/bsp/FreeRTOS/Source/portable/MemMang/heap_5.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_2.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_1.c|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM33|src/bsp/FreeRTOS/Source/portable/Common|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4F|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23_NTZ|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM0" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/bsp/FreeRTOS/Source/portable/MemMang/heap_3.c|src/bsp/FreeRTOS/Source/CMSIS_RTOS_V2|src/bsp/FreeRTOS/Source/portable/MemMang/heap_5.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_2.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_1.c|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM33|src/bsp/FreeRTOS/Source/portable/Common|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4F|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23_NTZ|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM0" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -219,7 +221,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/bsp/FreeRTOS/Source/portable/MemMang/heap_4.c|src/bsp/FreeRTOS/Source/CMSIS_RTOS_V2|src/bsp/FreeRTOS/Source/portable/MemMang/heap_5.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_2.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_1.c|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM33|src/bsp/FreeRTOS/Source/portable/Common|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4F|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23_NTZ|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM0" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/bsp/FreeRTOS/Source/portable/MemMang/heap_3.c|src/bsp/FreeRTOS/Source/CMSIS_RTOS_V2|src/bsp/FreeRTOS/Source/portable/MemMang/heap_5.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_2.c|src/bsp/FreeRTOS/Source/portable/MemMang/heap_1.c|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM33|src/bsp/FreeRTOS/Source/portable/Common|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM7|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4F|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM4_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3_MPU|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM3|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23_NTZ|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM23|src/bsp/FreeRTOS/Source/portable/GCC/ARM_CM0" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

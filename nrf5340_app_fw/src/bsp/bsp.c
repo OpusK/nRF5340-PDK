@@ -42,6 +42,10 @@ void bspInit(void)
   NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 7, 0));
 #endif
 
+  //-- 120Mhz
+  //
+  nrf_clock_hfclk_div_set(NRF_CLOCK, NRF_CLOCK_HFCLK_DIV_1);
+
 
   p_timer_us->TASKS_STOP = (TIMER_TASKS_STOP_TASKS_STOP_Trigger << TIMER_TASKS_STOP_TASKS_STOP_Pos);
   p_timer_us->PRESCALER   = 4; // 16Mhz / (2^4) = 1Mhz
