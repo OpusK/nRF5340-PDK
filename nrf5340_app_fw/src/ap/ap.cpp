@@ -40,6 +40,11 @@ void apMain(void)
       ledToggle(_DEF_LED2);
     }
     osThreadYield();
+
+    if (uartAvailable(_DEF_UART1) > 0)
+    {
+      uartPrintf(_DEF_UART1, "rx : 0x%X\n", uartRead(_DEF_UART1));
+    }
   }
 }
 
