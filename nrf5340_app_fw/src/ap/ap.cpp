@@ -45,10 +45,10 @@ void apMain(void)
 
 static void threadLED(void const *argument)
 {
-  for(;;)
+  while(1)
   {
     ledToggle(_DEF_LED1);
-    osDelay(500);
+    delay(500);
   }
 }
 
@@ -57,6 +57,7 @@ static void threadLCD(void const *argument)
 {
   while(1)
   {
-    osThreadYield();
+    ledToggle(_DEF_LED3);
+    delay(1000);
   }
 }

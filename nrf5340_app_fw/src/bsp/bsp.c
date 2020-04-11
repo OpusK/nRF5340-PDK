@@ -19,33 +19,28 @@ volatile NRF_TIMER_Type *p_timer_us = NRF_TIMER2;
 
 static volatile uint32_t systick_counter = 0;
 
-extern void swtimerISR(void);
+//extern void swtimerISR(void);
 
 
-//void SysTick_Handler(void)
-//{
-  //systick_counter++;
-  //swtimerISR();
-//}
-
-extern void bspYield(void);
-void bspYield(void)
+void SysTick_Handler(void)
 {
-  //tud_task();
+  systick_counter++;
+  //swtimerISR();
+  osSystickHandler();
 }
+
 
 void bspInit(void)
 {
-/*
+#if 0
   nrf_systick_load_set(SystemCoreClock / (1000UL / (uint32_t)1)); // 1Khz
   nrf_systick_csr_set(
       NRF_SYSTICK_CSR_CLKSOURCE_CPU |
       NRF_SYSTICK_CSR_TICKINT_ENABLE |
       NRF_SYSTICK_CSR_ENABLE);
-*/
 
   NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(), 7, 0));
-
+#endif
 
 
   p_timer_us->TASKS_STOP = (TIMER_TASKS_STOP_TASKS_STOP_Trigger << TIMER_TASKS_STOP_TASKS_STOP_Pos);
@@ -76,11 +71,21 @@ int __io_putchar(int ch)
 
 void delay(uint32_t ms)
 {
-  uint32_t pre_time = systick_counter;
+  uint32_t pre_time = millis();
 
-  while(systick_counter-pre_time < ms);
+#ifdef configUSE_PREEMPTION
+  if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
+  {
+    osDelay(ms);
+  }
+  else
+  {
+    while(millis()-pre_time < ms);
+  }
+#else
+  while(millis()-pre_time < ms);
+#endif
 }
-
 
 uint32_t millis(void)
 {
