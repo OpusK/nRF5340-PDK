@@ -374,7 +374,10 @@ int32_t uartWrite(uint8_t channel, uint8_t *p_data, uint32_t length)
         break;
       }
 #ifdef _USE_HW_RTOS
-      osThreadYield();
+      if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED)
+      {
+        osThreadYield();
+      }
 #endif
     }
     ret = length;

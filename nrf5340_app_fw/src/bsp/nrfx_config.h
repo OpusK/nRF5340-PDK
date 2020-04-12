@@ -162,7 +162,7 @@
 
 
 
-
+#define NRFX_QSPI_ENABLED               1
 #define NRFX_SYSTICK_ENABLED            1
 #define NRFX_NVMC_ENABLED               1
 

@@ -29,6 +29,7 @@
 
 
 #define _USE_HW_RTOS
+#define _USE_HW_FLASH
 
 
 #define _USE_HW_LED
@@ -47,6 +48,11 @@
 
 #define _USE_HW_BUTTON
 #define      HW_BUTTON_MAX_CH       4
+
+
+#define _USE_HW_QSPI
+#define      HW_QSPI_DRIVER         MX25R6435F
+#define      HW_QSPI_BASE_ADDR      0x10000000
 
 
 #endif /* SRC_HW_HW_DEF_H_ */
