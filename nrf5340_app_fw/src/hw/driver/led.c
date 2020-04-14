@@ -24,7 +24,6 @@ led_port_t led_port_tbl[LED_MAX_CH] =
     {NRF_GPIO_PIN_MAP(0,28), 0},
     {NRF_GPIO_PIN_MAP(0,29), 0},
     {NRF_GPIO_PIN_MAP(0,30), 0},
-    {NRF_GPIO_PIN_MAP(0,31), 0},
 };
 
 
