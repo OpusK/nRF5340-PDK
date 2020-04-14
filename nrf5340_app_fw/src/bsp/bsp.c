@@ -11,7 +11,8 @@
 #include "bsp.h"
 #include "rtos.h"
 #include "nrf_clock.h"
-
+#include "nrf_reset.h"
+#include "nrf_spu.h"
 
 
 volatile NRF_TIMER_Type *p_timer_us = NRF_TIMER2;
@@ -45,6 +46,17 @@ void bspInit(void)
   //-- 120Mhz
   //
   nrf_clock_hfclk_div_set(NRF_CLOCK, NRF_CLOCK_HFCLK_DIV_1);
+
+
+
+  nrf_spu_gpio_config_set(NRF_SPU, 0, 0, false);
+
+  //-- Network Core Power On
+  //
+  nrf_reset_network_force_off(NRF_RESET, false);
+
+  nrf_gpio_cfg_output(NRF_GPIO_PIN_MAP(0,31));
+  nrf_gpio_pin_mcu_select(NRF_GPIO_PIN_MAP(0,31), NRF_GPIO_PIN_MCUSEL_NETWORK);
 
 
   p_timer_us->TASKS_STOP = (TIMER_TASKS_STOP_TASKS_STOP_Trigger << TIMER_TASKS_STOP_TASKS_STOP_Pos);
