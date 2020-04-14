@@ -39,7 +39,6 @@ void apMain(void)
     {
       pre_time = millis();
 
-      nrf_gpio_pin_mcu_select(31, NRF_GPIO_PIN_MCUSEL_NETWORK);
       ledToggle(_DEF_LED1);
     }
 
