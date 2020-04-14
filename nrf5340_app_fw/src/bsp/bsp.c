@@ -49,7 +49,7 @@ void bspInit(void)
 
 
 
-  nrf_spu_gpio_config_set(NRF_SPU, 0, 0, false);
+  //nrf_spu_gpio_config_set(NRF_SPU, 0, 0, false);
 
   //-- Network Core Power On
   //
